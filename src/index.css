@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	/* background-color: #f1f1f1; */
+	font-family: "Inter", sans-serif;
+}
+
+@layer base {
+	h1 {
+		@apply text-xl;
+	}
+	h2 {
+		@apply text-lg;
+	}
+	h3 {
+		@apply text-base;
+	}
+	h4 {
+		@apply text-sm;
+	}
+	p {
+		@apply text-xs;
+	}
+}
+
+@layer components {
+	.icon {
+		@apply text-2xl;
+	}
+	.fcc {
+		@apply flex;
+		@apply justify-center;
+		@apply items-center;
+	}
+	.fnc {
+		@apply flex;
+		@apply items-center;
+	}
+	.fcn {
+		@apply flex;
+		@apply justify-center;
+	}
+	.fbc {
+		@apply flex;
+		@apply justify-between;
+		@apply items-center;
+	}
+	.fsc {
+		@apply flex;
+		@apply justify-start;
+		@apply items-center;
+	}
+	.fac {
+		@apply flex;
+		@apply justify-around;
+		@apply items-center;
+	}
+	.fcs {
+		@apply flex;
+		@apply justify-center;
+		@apply items-start;
+	}
+	.fevc {
+		@apply flex;
+		@apply justify-evenly;
+		@apply items-center;
+	}
+}

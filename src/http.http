@@ -1,0 +1,27 @@
+# GET https://api.ipify.org?format=json HTTP/1.1
+# ----------
+# {
+#   "ip": "5.122.235.163"
+# }
+
+# GET http://ip-api.com/json/5.122.235.163 HTTP/1.1
+# ----------
+# {
+#   "status": "success",
+#   "country": "Iran",
+#   "countryCode": "IR",
+#   "region": "23",
+#   "regionName": "Tehran",
+#   "city": "Tehran",
+#   "zip": "",
+#   "lat": 35.7599,
+#   "lon": 51.4739,
+#   "timezone": "Asia/Tehran",
+#   "isp": "Iran Cell Service and Communication Company",
+#   "org": "IRANCELL",
+#   "as": "AS44244 Iran Cell Service and Communication Company",
+#   "query": "5.122.235.163"
+# }
+
+GET http://api.openweathermap.org/data/2.5/forecast/hourly?lat=35.75&lon=51.47&appid=38ba8520032d59679ced21e2ca95a2db HTTP/1.1
+# GET http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&lat=35.75&lon=51.47&appid=38ba8520032d59679ced21e2ca95a2db HTTP/1.1
