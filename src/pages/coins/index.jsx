@@ -11,8 +11,8 @@ function CoinsPage() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getAsyncCoins());
 		document.title = "Welcome to coins page | crypto datas";
+		dispatch(getAsyncCoins());
 	}, []);
 
 	return (

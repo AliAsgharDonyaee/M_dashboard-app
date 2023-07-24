@@ -16,7 +16,7 @@ function Header() {
 
 	const { user, error } = useSelector((state) => state.githubDatas);
 
-	if (error) return Notiflix.Notify.failure("can't get data");
+	if (error) Notiflix.Notify.failure("can't get data");
 
 	return (
 		<header className='px-3 pt-2 w-full h-auto sticky top-0 z-30'>
@@ -30,7 +30,7 @@ function Header() {
 							: l.pathname === "/weather"
 							? "bg-header-light-w dark:bg-header-dark-w"
 							: "bg-white dark:bg-slate-700"
-					} p-2 pl-4 w-full h-20 fbc overflow-hidden`}
+					} p-2 pl-4 w-full h-20 fbc`}
 				>
 					<Avatar img={user?.avatar_url} name={user?.name} />
 					<Notif name={user?.name} n={user?.notification} s={user?.notification} />

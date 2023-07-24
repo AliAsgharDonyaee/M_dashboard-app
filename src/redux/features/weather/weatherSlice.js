@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getWeather } from "./thunk.js";
+import getWeather from "./thunk.js";
 
 export const weatherSlice = createSlice({
 	name: "weatherDatas",

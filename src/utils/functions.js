@@ -22,10 +22,10 @@ export const toCurrency = (n) => {
 
 export const convertCelsius = (n) => {
 	let x = n - 273.15;
-	return x.toFixed(0);
+	return x.toFixed(1);
 };
 
 export const convertFirenhite = (n) => {
 	let x = ((n - 273.15) * 9) / 5 + 32;
-	return x.toFixed(0);
+	return x.toFixed(1);
 };

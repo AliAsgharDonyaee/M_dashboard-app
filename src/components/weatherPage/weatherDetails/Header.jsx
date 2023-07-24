@@ -1,7 +1,7 @@
 function Header({ text, icon }) {
 	return (
 		<header className='col-span-1 row-span-1 fsc'>
-			<div className='mr-3 w-10 h-10 bg-white rounded-full fcc'>
+			<div className='mr-3 w-12 h-12 border-2 border-white rounded-full fcc'>
 				<img src={`http://openweathermap.org/img/w/${icon}.png`} />
 			</div>
 			<div className='w-auto h-auto'>

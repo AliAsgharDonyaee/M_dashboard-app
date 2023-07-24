@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import http from "../../../services/http";
+import axios from "axios";
 
 export const getAsyncCoins = createAsyncThunk("coins/getAsyncCoins", async (_, { rejectWithValue }) => {
 	try {
-		const res = await http.get(
-			"https://rest.coinapi.io/v1/assets?filter_asset_id=BTC;ETH;ETC;XRP;SOL;SHIB;ADA;MATIC;EOS;LTC;AVAX;BAT;BCH;BNB;CHZ;FIL;FLUX;LDO;TRX;WAVES&symbol_type=FUTURES",
+		const res = await axios.get(
+			"https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC,ETH,ETC,XRP,SOL,SHIB,ADA,MATIC,EOS,LTC,AVAX,BAT,BCH,BNB,CHZ,FIL,FLUX,LDO,TRX,WAVES",
 			{
 				headers: {
-					"X-CoinAPI-Key": "A69AEF7A-472D-45E3-851C-F342AA5C7BEF",
+					"X-CMC_PRO_API_KEY": `d214a215-cdca-4df4-8de7-4c90f2deb065`,
 				},
 			},
 		);

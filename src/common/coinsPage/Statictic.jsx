@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { TbActivityHeartbeat } from "react-icons/tb";
 import LazyLoading from "./LazyLoading.jsx";
 import Notiflix from "notiflix";
-import { BiCoin } from "react-icons/bi";
 import { oneCoin } from "../../redux/features/crypto/coinsSlice.js";
 
 function Statictic() {
-	const { kings, loading, error } = useSelector((state) => state.coinsData);
+	const { coins, loading, error } = useSelector((state) => state.coinsData);
 	const dispatch = useDispatch();
 
 	if (error) Notiflix.Notify.failure(error);
@@ -21,17 +20,20 @@ function Statictic() {
 			{loading ? (
 				<LazyLoading />
 			) : (
-				[...kings].slice(0, 10).map((i) => (
-					<button key={i.data_symbols_count} onClick={() => dispatch(oneCoin(i))}>
-						<BoxStatictic
-							Icon={BiCoin}
-							symbol={i.asset_id}
-							price={i.price_usd.toString().slice(0, 8)}
-							PIcon={TbActivityHeartbeat}
-							changes={2.59}
-						/>
-					</button>
-				))
+				coins?.data.slice(0, 10).map((i) => {
+					const name = Object.keys(i.data)[0];
+					return (
+						<button key={name.id} onClick={() => dispatch(oneCoin(i))}>
+							<BoxStatictic
+								Icon={name.id}
+								symbol={name}
+								price={name.quote.USD.price.toString().slice(0, 8)}
+								PIcon={TbActivityHeartbeat}
+								changes={2.59}
+							/>
+						</button>
+					);
+				})
 			)}
 		</article>
 	);
