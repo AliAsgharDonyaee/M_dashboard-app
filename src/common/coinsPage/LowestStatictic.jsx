@@ -1,13 +1,11 @@
 import BoxStatictic from "../../components/coinsPage/BoxStatictic.jsx";
-import { useDispatch, useSelector } from "react-redux";
-import { TbActivityHeartbeat } from "react-icons/tb";
+import { useDispatch } from "react-redux";
 import LazyLoading from "./LazyLoading.jsx";
 import Notiflix from "notiflix";
-import { BiCoin } from "react-icons/bi";
 import { oneCoin } from "../../redux/features/crypto/coinsSlice.js";
+import { toChange } from "../../utils/functions.js";
 
-function LowestStatictic() {
-	const { coins, loading, error } = useSelector((state) => state.coinsData);
+function LowestStatictic({ y, loading, error }) {
 	const dispatch = useDispatch();
 
 	if (error) Notiflix.Notify.failure(error.message);
@@ -21,41 +19,25 @@ function LowestStatictic() {
 			{loading ? (
 				<LazyLoading />
 			) : (
-				// 	coins
-				// 		?.slice(0, 10)
-				// 		.sort((a, b) => {
-				// 			return a.price_usd - b.price_usd;
-				// 		})
-
-				// 		.map((i) => {
-				// 			return (
-				// 				<button key={i.data_symbols_count} onClick={() => dispatch(oneCoin(i))}>
-				// 					<BoxStatictic
-				// 						color={Math.floor(Math.random() * 16777215).toString(16)}
-				// 						Icon={BiCoin}
-				// 						symbol={i.asset_id}
-				// 						price={i.price_usd.toString().slice(0, 8)}
-				// 						PIcon={TbActivityHeartbeat}
-				// 						changes={2.59}
-				// 					/>
-				// 				</button>
-				// 			);
-				// 		})
-
-				coins?.data.slice(0, 10).map((i) => {
-					const name = Object.keys(i.data)[0];
-					return (
-						<button key={name.id} onClick={() => dispatch(oneCoin(i))}>
-							<BoxStatictic
-								Icon={name.id}
-								symbol={name}
-								price={name.quote.USD.price.toString().slice(0, 8)}
-								PIcon={TbActivityHeartbeat}
-								changes={2.59}
-							/>
-						</button>
-					);
-				})
+				y
+					?.slice(0, 10)
+					.sort((a, b) => {
+						return a[0].PRICE - b[0].PRICE;
+					})
+					.map((i,index) => {
+						if (i) {
+							return (
+								<button key={index} onClick={() => dispatch(oneCoin(i[0]))}>
+									<BoxStatictic
+										Icon={i[0].IMAGEURL}
+										symbol={i[0].FROMSYMBOL}
+										price={i[0].PRICE}
+										changes={toChange(i[0].OPEN24HOUR, i[0].HIGH24HOUR, i[0].LOW24HOUR, i[0].PRICE)}
+									/>
+								</button>
+							);
+						}
+					})
 			)}
 		</article>
 	);

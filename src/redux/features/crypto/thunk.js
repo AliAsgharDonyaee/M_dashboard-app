@@ -4,14 +4,16 @@ import axios from "axios";
 export const getAsyncCoins = createAsyncThunk("coins/getAsyncCoins", async (_, { rejectWithValue }) => {
 	try {
 		const res = await axios.get(
-			"https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC,ETH,ETC,XRP,SOL,SHIB,ADA,MATIC,EOS,LTC,AVAX,BAT,BCH,BNB,CHZ,FIL,FLUX,LDO,TRX,WAVES",
+			"https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,ETC,XRP,SOL,SHIB,ADA,MATIC,EOS,LTC,AVAX,BAT,BCH,BNB,CHZ,FIL,FLUX,LDO,TRX,WAVES&tsyms=USD",
 			{
 				headers: {
-					"X-CMC_PRO_API_KEY": `d214a215-cdca-4df4-8de7-4c90f2deb065`,
+					authorization: `Apikey ${process.env.REACT_APP_CRYPTO_API_TOKEN}`,
 				},
 			},
 		);
-		return res.data;
+		const x = [res.data.RAW].map((i) => Object.values(i))[0];
+		const y = x.map((i) => Object.values(i));
+		return y;
 	} catch (error) {
 		return rejectWithValue([], error.message);
 	}

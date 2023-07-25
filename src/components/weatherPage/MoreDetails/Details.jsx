@@ -25,12 +25,12 @@ function Details({ data, i }) {
 			</div>
 			<div className='fevc flex-col w-16 h-full font-bold text-purple-500 dark:text-orange-300'>
 				<p>~ {convertCelsius(data.main.temp_max)} &#8451;</p>
-				<p>/</p>
+				<p>|</p>
 				<p>~ {convertCelsius(data.main.temp_min)} &#8451;</p>
 			</div>
 			<div className='fevc flex-col w-16 h-full font-bold text-purple-500 dark:text-orange-300'>
 				<p>~ {convertFirenhite(data.main.temp_max)} &#8457;</p>
-				<p>/</p>
+				<p>|</p>
 				<p>~ {convertFirenhite(data.main.temp_min)} &#8457;</p>
 			</div>
 		</div>

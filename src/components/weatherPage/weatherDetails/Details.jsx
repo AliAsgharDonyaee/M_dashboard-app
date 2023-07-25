@@ -23,7 +23,7 @@ function Details({ color1, color2, color3, pressure, speed, deg }) {
 			</div>
 			<div className={`${color3} rounded-xl fevc flex-col`}>
 				<p className='tracking-wide text-white/80 md:text-base fcc'>
-					speed <BsArrowUp className={`icon ml-2 relative ${rotate}`} />
+					speed <BsArrowUp className={`icon ml-2 relative rotate-[${deg}deg] ${rotate}`} />
 				</p>
 				<p className='text-2xl xl:text-2xl'>
 					{deg} <span className='text-sm'>deg</span>
