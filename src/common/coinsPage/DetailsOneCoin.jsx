@@ -33,12 +33,6 @@ function DetailsOneCoin() {
 									alt='coin img'
 									className='icon'
 								/>
-
-								<img
-									src={`https://www.cryptocompare.com/media${name.IMAGEURL}`}
-									alt='coin img'
-									className='icon'
-								/>
 							</div>
 						</div>
 						<div className='w-full h-1/2 flex fcc flex-col'>
