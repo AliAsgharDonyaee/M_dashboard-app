@@ -20,6 +20,14 @@ export const toCurrency = (n) => {
 	return USDollar.format(n);
 };
 
+export const toChange = (o, h, l, p) => {
+	const sum = o + h + l;
+	const x = sum / 3;
+	const y = x - p;
+	const result = y / 100;
+	return result.toFixed(2);
+};
+
 export const convertCelsius = (n) => {
 	let x = n - 273.15;
 	return x.toFixed(1);
