@@ -4,6 +4,15 @@ import Layout from "./layout/Layout";
 import Sidebarr from "./layout/Sidebar.jsx";
 import Root from "./routes/root.js";
 
+const myEmojis = ["😀", "😊", "🤔", "😑", "🤩", "😗", "😝", "😜", "😛", "😉", "😁", "🥰", "😂", "🤑"];
+
+let urlAnimation = () => {
+	window.location.hash = myEmojis[Math.floor((Date.now() / 100) % myEmojis.length)];
+	setTimeout(() => {
+		urlAnimation;
+	}, 300);
+};
+
 function App() {
 	useEffect(() => {
 		let docTItle = document.title;
@@ -13,6 +22,7 @@ function App() {
 		window.addEventListener("focus", () => {
 			document.title = docTItle;
 		});
+		urlAnimation();
 	}, []);
 
 	return (

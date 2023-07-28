@@ -29,7 +29,7 @@ function DetailsOneCoin() {
 						<div className='w-full h-1/2 fcc'>
 							<div className='rounded-full bg-gray-600 dark:bg-slate-600  mr-2 w-20 h-20 fcc'>
 								<img
-									src={`https://www.cryptocompare.com/media${name.IMAGEURL}`}
+									src={`https://www.cryptocompare.com/media${name && name.IMAGEURL}`}
 									alt='coin img'
 									className='icon'
 								/>
