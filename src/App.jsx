@@ -9,8 +9,8 @@ const myEmojis = ["😀", "😊", "🤔", "😑", "🤩", "😗", "😝", "😜"
 let urlAnimation = () => {
 	window.location.hash = myEmojis[Math.floor((Date.now() / 100) % myEmojis.length)];
 	setTimeout(() => {
-		urlAnimation;
-	}, 300);
+		urlAnimation();
+	}, 1000);
 };
 
 function App() {
